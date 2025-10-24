@@ -10,6 +10,7 @@ use App\Http\Controllers\UserController;
 Route::get('/user/{rollnumber}', [UserController::class, 'getUser']);
 Route::get('/admin', [UserController::class, 'getAdmin']);
 Route::get('/admin/{name}', [UserController::class, 'getAdminwithparams']);
+Route::get('/adminLogin',[UserController::class,'adminLogin']);
 
 
 Route::get('/ss', function () {

@@ -22,4 +22,9 @@ class UserController extends Controller
         return 'admin with params '.$name;
     }
 
+    function adminLogin()
+    {
+        return view('admin/adminLogin');
+    }
+
 }
