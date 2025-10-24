@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    function getUser()
+    function getUser($rollnumber)
     {
-        return view('ss');
+        // calling a view page from controller 
+        return view('ss',['rollnumber'=>$rollnumber]);
     }
 
     function getAdmin()

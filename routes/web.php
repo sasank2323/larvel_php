@@ -7,7 +7,7 @@ use App\Http\Controllers\UserController;
 
 // next make sure routes are there for single single function first we have to give controller name then 
 // function name in string type 
-Route::get('/user', [UserController::class, 'getUser']);
+Route::get('/user/{rollnumber}', [UserController::class, 'getUser']);
 Route::get('/admin', [UserController::class, 'getAdmin']);
 Route::get('/admin/{name}', [UserController::class, 'getAdminwithparams']);
 
