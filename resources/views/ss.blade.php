@@ -10,6 +10,8 @@
 <body>
  @include('common.index')
 
+ <x-message-banner />
+
 <section>
 <div class="card">
   <div class="card-header">
