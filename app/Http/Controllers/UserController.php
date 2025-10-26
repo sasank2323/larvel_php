@@ -9,7 +9,8 @@ class UserController extends Controller
     function getUser($rollnumber)
     {
         // calling a view page from controller 
-        return view('ss',['rollnumber'=>$rollnumber]);
+        $user=["sasank","rahul","messy"];
+        return view('ss',['rollnumber'=>$rollnumber,"user"=>$user]);
     }
 
     function getAdmin()
