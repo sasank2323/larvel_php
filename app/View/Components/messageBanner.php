@@ -11,9 +11,13 @@ class messageBanner extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+
+   public  $msg;
+   public $class;
+    public function __construct($msg, $class)
     {
-        //
+        $this->msg = $msg;
+        $this->class = $class;
     }
 
     /**

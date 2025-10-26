@@ -6,11 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <style>
+        span {
+           
+            color: black;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
  @include('common.index')
-
- <x-message-banner />
+<!-- php artisan make:component MessageBanner
+this is the command to make a component after making use php artisan serve to run the server -->
+ <x-message-banner msg="hi this is message banner component from ss" class="blue" />
 
 <section>
 <div class="card">
