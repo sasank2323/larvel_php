@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 // first import controllers 
+use App\Http\Controllers\Submit_form;
 use App\Http\Controllers\UserController;
 
 // next make sure routes are there for single single function first we have to give controller name then 
@@ -32,6 +33,11 @@ Route::get('/welcome', function () {
 });
 //or 
 Route::view('/welcome','welcome');
+
+Route::view('/form','form');
+
+Route::view('/submitform','submitform');
+Route::post('/adduser',[Submit_form::class,'adduser']);
 // this is the way of creating controllers  
 
 //php artisan make::controller UserController
