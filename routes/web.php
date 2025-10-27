@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // first import controllers 
 use App\Http\Controllers\Submit_form;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\form2submit;
 
 // next make sure routes are there for single single function first we have to give controller name then 
 // function name in string type 
@@ -36,8 +37,18 @@ Route::view('/welcome','welcome');
 
 Route::view('/form','form');
 
-Route::view('/submitform','submitform');
+
 Route::post('/adduser',[Submit_form::class,'adduser']);
 // this is the way of creating controllers  
 
-//php artisan make::controller UserController
+//php artisan make::controller 
+
+
+// now we are creating a new view page with form check box ,
+//radio button ,range drop down and submit to controller 
+
+Route::view('/form2','secondform');
+
+Route::post('/adduser2',[form2submit::class,'form2submitdata']);
+// this is the way of creating controllers 
+//php artisan make::controller form2submit here /adduser2 is route and method name is form2submitdata

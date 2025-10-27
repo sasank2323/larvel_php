@@ -10,6 +10,7 @@ class Submit_form extends Controller
     {
         $name = $request->input('name');
         $email = $request->input('email');
+        echo $request->name;
         return "Form submitted successfully. Name: " . $name . ", Email: " . $email;
     }
 }
