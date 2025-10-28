@@ -13,6 +13,10 @@ class form2submit extends Controller
             'skill' => 'required|array|min:1',
             'level' => 'required',
             'gender' => 'required',
+            'username'=>'required|uppercase'
+        ],[
+            'skill.required' => 'Please select at least one skill.',
+            'username.uppercase'=>'The username must be in uppercase letters.'
         ]);
         echo "Form 2 Submitted Successfully<br>";
         $skill = $request->input('skill');

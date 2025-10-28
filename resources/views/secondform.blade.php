@@ -62,6 +62,12 @@
         <option value="advanced">Advanced</option>
       </select>
     </div>
+
+    <div>
+        <input type="text" name="username" placeholder="Enter Username">
+    </div>
+
+
     <input type="submit" value="Submit">
     </form>
 
