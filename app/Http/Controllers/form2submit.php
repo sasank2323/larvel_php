@@ -9,6 +9,11 @@ class form2submit extends Controller
     //
     function form2submitdata(Request $request)
     {
+        $request->validate([
+            'skill' => 'required|array|min:1',
+            'level' => 'required',
+            'gender' => 'required',
+        ]);
         echo "Form 2 Submitted Successfully<br>";
         $skill = $request->input('skill');
         $level= $request->input('level');

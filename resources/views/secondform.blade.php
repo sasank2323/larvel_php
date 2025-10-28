@@ -23,6 +23,16 @@
     </style>
 </head>
 <body>
+
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form action="/adduser2" method="POST">
         @csrf   
     <div class="ss">
@@ -33,6 +43,7 @@
     <label for="laravel"> Laravel</label><br>
     <input type="checkbox" id="javascript" name="skill[]" value="JavaScript">
     <label for="javascript"> JavaScript</label><br>
+    <span class="text-danger" style="color: red;">@error('skill') {{ $message }} @enderror</span>
     </div>
 
     <div class="ss">
@@ -40,6 +51,7 @@
         <label for="male"> Male</label><br>
         <input type="radio" id="female" name="gender" value="Female">   
         <label for="female"> Female</label><br>
+        <span class="text-danger" style="color: red;">@error('gender') {{ $message }} @enderror</span>
     </div>
 
     <div class="ss">
