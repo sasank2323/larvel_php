@@ -14,6 +14,7 @@
     </style>
 </head>
 <body>
+    <a href="/home/sasank">going to home page</a>
     <form action="/adduser" method="POST">
          @csrf
         <label for="name">Name:</label>
