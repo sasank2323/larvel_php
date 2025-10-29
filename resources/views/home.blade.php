@@ -19,6 +19,7 @@
     <h2> hi sasank</h2>
     <a href="{{URL::to('/form')}}">Go to Form Page</a>
     <a href="{{URL::to('/form2')}}">Go to Form2 Page</a>
+    <
 <h3> {{$name}}</h3>
 <h4>{{URL::current()}}</h4>
 <h4>{{URL::full()}}</h4>
