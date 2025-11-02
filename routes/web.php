@@ -56,3 +56,9 @@ Route::post('/adduser2',[form2submit::class,'form2submitdata']);
 Route::get('/bigurl',[bigurlcontroller::class,'showbigurl']);
 
 Route::view('/bigurl/bigger','bigurl')->name('hm');
+
+
+
+Route::get('/bigurl/redirect',[bigurlcontroller::class,'showbigurlwithparameter']);
+
+Route::view('/bigurl/bigger/{id}','bigurl')->name('parameter');
