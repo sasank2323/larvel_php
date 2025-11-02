@@ -2,3 +2,4 @@ php artisan make:rule uppercase
 php artisan make:view ss
 php artisan make:controller formsubmit 
 php artisan serve
+ php artisan make:middlewear ageCheck
