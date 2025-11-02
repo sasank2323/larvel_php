@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Submit_form;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\form2submit;
+use App\Http\Middleware\AgeCheck;
+use App\Http\Middleware\countryCheck;
 use App\Http\Controllers\bigurlcontroller;
 use App\Http\Controllers\student;
 use App\Http\Controllers\cron;
@@ -111,6 +113,10 @@ Route::middleware("web")->group(function(){
 });
 
 // applying single middlewear to single route dont need to append in app.php
-Route::get('/agecheck', function () {
-    return view('age');
-})->middleware('AgeCheck');
+// if you dont use Route::middleware("web")->group(function(){}); in that case you have to append middlewear in app.php
+// and you have to import that in web .php so that you can append that in view page 
+Route::get('/homecheck', function () {
+    return view('welcome');
+})->middleware([AgeCheck::class, countryCheck::class]);
+
+
