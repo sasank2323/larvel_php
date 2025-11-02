@@ -8,6 +8,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\form2submit;
 use App\Http\Controllers\bigurlcontroller;
 use App\Http\Controllers\student;
+use App\Http\Controllers\cron;
 // next make sure routes are there for single single function first we have to give controller name then 
 // function name in string type 
 Route::get('/user/{rollnumber}', [UserController::class, 'getUser']);
@@ -78,3 +79,21 @@ Route::prefix('student')->group(function(){
     Route::get('/addstudent', [student::class, 'addstudent'])->name('addstudent');
     Route::view('/studentview{name}','studentview');
 });
+
+
+// Route::get('/cron/show',[cron::class,'show']);
+// Route::get('/cron/update',[cron::class,'update']);
+// Route::get('/cron/delete',[cron::class,'delete'])
+// or 
+
+Route::controller(cron::class)->group(function(){
+    Route::get('cron/add','add');
+    Route::get('cron/update/{name}','update');
+    Route::get('cron/delete','delete');
+});
+         //or
+// Route::controller(cron:class)->prefix('cron')->group(function(){
+//     Route::get('/add','add');
+//     Route::get('/update/{name}','update');
+//     Route::get('/delete','delete');
+// });
