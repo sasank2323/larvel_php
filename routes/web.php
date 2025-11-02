@@ -109,3 +109,8 @@ Route::middleware("web")->group(function(){
     Route::view("/agecheck","age");
     Route::view("/country","country");
 });
+
+// applying single middlewear to single route dont need to append in app.php
+Route::get('/agecheck', function () {
+    return view('age');
+})->middleware('AgeCheck');
