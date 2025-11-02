@@ -7,6 +7,7 @@ use App\Http\Controllers\Submit_form;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\form2submit;
 use App\Http\Controllers\bigurlcontroller;
+use App\Http\Controllers\student;
 // next make sure routes are there for single single function first we have to give controller name then 
 // function name in string type 
 Route::get('/user/{rollnumber}', [UserController::class, 'getUser']);
@@ -62,3 +63,18 @@ Route::view('/bigurl/bigger','bigurl')->name('hm');
 Route::get('/bigurl/redirect',[bigurlcontroller::class,'showbigurlwithparameter']);
 
 Route::view('/bigurl/bigger/{id}','bigurl')->name('parameter');
+
+
+// route for student controller
+
+// Route::get('student/showstudentview',[student::class,'showstudentview']);
+// Route::get('student/addstudent', [student::class, 'addstudent']);
+// Route::view('student/studentview','studentview');
+
+//  or 
+
+Route::prefix('student')->group(function(){
+    Route::get('/showstudentview',[student::class,'showstudentview'])->name('studentview');
+    Route::get('/addstudent', [student::class, 'addstudent'])->name('addstudent');
+    Route::view('/studentview{name}','studentview');
+});
