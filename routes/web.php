@@ -97,3 +97,15 @@ Route::controller(cron::class)->group(function(){
 //     Route::get('/update/{name}','update');
 //     Route::get('/delete','delete');
 // });
+
+
+
+
+// Route::view("/agecheck","age")->middleware('web');
+// Route::view("/country","country")->middleware('web');
+// or applying for multiple routes single group of middlewears
+
+Route::middleware("web")->group(function(){
+    Route::view("/agecheck","age");
+    Route::view("/country","country");
+});

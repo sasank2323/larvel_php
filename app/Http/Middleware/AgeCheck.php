@@ -15,11 +15,10 @@ class AgeCheck
      */
     public function handle(Request $request, Closure $next): Response
     {
-        echo "<pre>";
-        print_r($request);
-        // print_r($request->age);
-        // print_r($request->all());
-        echo "</pre>";
+       
+        if($request->age < 18){
+            return response("You are not allowed to access this route because you are under age");
+        }
         return $next($request);
     }
 }
