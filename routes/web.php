@@ -118,5 +118,11 @@ Route::middleware("web")->group(function(){
 Route::get('/homecheck', function () {
     return view('welcome');
 })->middleware([AgeCheck::class, countryCheck::class]);
+//single middlewear to single route
+Route::get('/agecheck', function () {
+    return view('age');
+})->middleware(AgeCheck::class);
 
-
+Route::get('/countrycheck', function () {
+    return view('country');
+})->middleware(countryCheck::class);
