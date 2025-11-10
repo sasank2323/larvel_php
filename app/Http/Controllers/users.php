@@ -3,14 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\support\Facades\DB;
 class users
 {
     //
 
     function show()
     {
-        echo "ss";
-        return view('users');
+        $users = DB::select('select * from student');
+        return view('users',["users"=>$users]);
     }
 }
