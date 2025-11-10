@@ -3,8 +3,15 @@
 
     <h1>Students List</h1>
     <ul>
-        @foreach ($students as $student)
-            <li>{{ $student->name }} - {{ $student->roll_number }}</li>
+        <!-- <?php print_r($data); ?>
+        <?php exit() ?> -->
+        @foreach ($data as $d)
+            <li>{{ $d->userId }} - {{ $d->id }}</li>
+            <li>{{ $d->title }}</li>
+            <li>{{ $d->body }}</li>
+            <br>
         @endforeach
     </ul>
+
+
 </div>

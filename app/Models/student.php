@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\support\Facades\Http;
 
 class student extends Model
 {
@@ -12,4 +13,7 @@ class student extends Model
     {
         return "ss";
     }
+
+   
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\student;
 use Illuminate\Http\Request;
+use Illuminate\support\Facades\Http;
 
 class students
 {
@@ -15,4 +16,11 @@ class students
         return view('students',["students"=>$students]);
         
     }
+
+     function get_data_from_api()
+    {
+        $response = Http::get('https://jsonplaceholder.typicode.com/posts');
+        return view('students', ['data' => $response->json()]);
+    }
+
 }
