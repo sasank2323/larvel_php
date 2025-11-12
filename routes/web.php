@@ -19,5 +19,7 @@ Route::put("/updateuser",[users::class,'updateuser']);
 
 Route::delete("/deleteuser",[users::class,'deleteuser']);
 
-Route::view('/', 'welcome');
+Route::view('/usersop', 'allpostgetupdatedelete');
 
+// this means it will hit when two methods get and post are used both will call same function 
+Route::match(['get','post'],'/twomethods',[users::class,'twomethods']);

@@ -9,20 +9,64 @@ class Users
 {
     //
 
-    public function show()
+    public function show(request $request)
     {
-        $data = User::all();
-        $data2=User::where('id',1)->get();
-        $data3=User::find(2);
-        $data4=User::orderBy('id','desc')->get();
-        $data5=User::insert([
-            'name'=>'new user',
-            'email'=>'sasasnk@gamil.com','password'=>'password123']);
-        $data6=User::where('id',3)->update([
-            'name'=>'updated user',
-            'email'=>'updatedemail@gmail.com'
-        ]);
-        $data7=User::where('id',4)->delete();
+        echo "<pre>";
+        print_r($request->all());
+        echo "</pre>";
         return view('users', ["users" => $data]);
+    }
+
+    public function adduser(Request $request)
+    {
+        $user=new User;
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=$request->password;
+        $user->save();
+        return "User added successfully";
+    }
+
+    public function updateuser(Request $request)
+    {
+        $user=User::find($request->id);
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->password=$request->password;
+        $user->save();
+        return "User updated successfully";
+    }
+
+    public function edituser(Request $request)
+    {
+        $user=User::find($request->id);
+        if($request->has('name')){
+            $user->name=$request->name;
+        }
+        if($request->has('email')){
+            $user->email=$request->email;
+        }
+        if($request->has('password')){
+            $user->password=$request->password;
+        }
+        $user->save();
+        return "User edited successfully";
+    }
+
+    public function deleteuser(Request $request)
+    {
+        $user=User::find($request->id);
+        $user->delete();
+        return "User deleted successfully";
+    }
+
+    public function twomethods(Request $request)
+    {
+        if($request->isMethod('get')){
+            return "This is GET method";
+        }
+        elseif($request->isMethod('post')){
+            return "This is POST method";
+        }
     }
 }
