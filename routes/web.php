@@ -8,3 +8,5 @@ Route::get("/getstudents",[students::class,'getstudents']);
 
 Route::get("/getdatafromapi",[students::class,'get_data_from_api']);
 
+Route::get("/users",[users::class,'show']);
+
