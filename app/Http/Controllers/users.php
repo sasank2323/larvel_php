@@ -13,7 +13,20 @@ class Users
     {
         echo "<pre>";
         print_r($request->all());
+        echo "<br>";
+
+        print_r($request->method());
+        echo "<br>";
+
+        print_r($request->url());
+         echo "<br>";
+        print_r($request->path());
+        echo "<br>";
+        //print_r($request->header());
+        print_r($request->ip());
+
         echo "</pre>";
+        exit();
         return view('users', ["users" => $data]);
     }
 
