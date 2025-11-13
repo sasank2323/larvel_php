@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\users;
 use App\Http\Controllers\students;
+use App\Http\Controllers\checksession;
 
 Route::get("/getstudents",[students::class,'getstudents']);
 
@@ -23,3 +24,14 @@ Route::view('/usersop', 'allpostgetupdatedelete');
 
 // this means it will hit when two methods get and post are used both will call same function 
 Route::match(['get','post'],'/twomethods',[users::class,'twomethods']);
+
+
+
+//session 
+
+Route::view('/sessionview','sessionview');
+
+Route::get('/checksession',[checksession::class,'checksessiondata']);
+
+Route::get('/logout',[users::class,'logout']);
+

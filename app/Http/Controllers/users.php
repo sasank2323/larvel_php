@@ -11,6 +11,13 @@ class Users
 
     public function show(request $request)
     {
+
+        $data = [
+            'id' => 123,
+            'name' => $request->input('name', 'sasank'),
+            'email' => $request->input('email', 'sasank@example.com'),
+        ];
+        $request->session()->put('user_data', $data);
         echo "<pre>";
         print_r($request->all());
         echo "<br>";
@@ -24,10 +31,11 @@ class Users
         echo "<br>";
         //print_r($request->header());
         print_r($request->ip());
-
+         
         echo "</pre>";
-        exit();
-        return view('users', ["users" => $data]);
+
+        return "done";
+        
     }
 
     public function adduser(Request $request)
@@ -81,5 +89,11 @@ class Users
         elseif($request->isMethod('post')){
             return "This is POST method";
         }
+    }
+
+    function logout(Request $request)
+    {
+        $request->session()->forget('user_data');
+        return "Session data cleared";
     }
 }

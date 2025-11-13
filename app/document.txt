@@ -1,0 +1,223 @@
+Excellent 👏 — this is a very important Laravel question!
+Let’s go through **all the methods to store, get, and manage session variables** in Laravel — step by step with examples 👇
+
+---
+
+## 🧠 **Laravel Session Methods Overview**
+
+Laravel provides the session through the **`Illuminate\Http\Request`** object or the **`Session` facade**.
+You can use **either** `$request->session()` or `session()` helper — both work the same.
+
+---
+
+## 🗂️ **1. Storing Session Data**
+
+### ✅ Method 1: Using `put()`
+
+Stores a key–value pair permanently (until session expires or is cleared).
+
+```php
+$request->session()->put('user_name', 'Sasank');
+```
+
+Or using the global helper:
+
+```php
+session(['user_name' => 'Sasank']);
+```
+
+---
+
+### ✅ Method 2: Using `push()`
+
+Adds a value to an array in session.
+
+```php
+$request->session()->push('cart.items', 'Product 1');
+$request->session()->push('cart.items', 'Product 2');
+```
+
+Result:
+
+```php
+[
+  "cart" => [
+    "items" => ["Product 1", "Product 2"]
+  ]
+]
+```
+
+---
+
+### ✅ Method 3: Using `put()` with arrays
+
+Store multiple values at once:
+
+```php
+$request->session()->put([
+    'id' => 123,
+    'name' => 'Sasank',
+    'email' => 'sasank@example.com'
+]);
+```
+
+---
+
+### ✅ Method 4: Using `flash()`
+
+Stores data **for only one request** (used for messages like “Saved successfully”).
+
+```php
+$request->session()->flash('success', 'Profile updated!');
+```
+
+Data automatically disappears after the next request.
+
+---
+
+### ✅ Method 5: Using `reflash()` and `keep()`
+
+Keep flashed data for the next request(s).
+
+```php
+$request->session()->reflash();  // keep all flash data for another request
+$request->session()->keep(['success']); // keep only specific keys
+```
+
+---
+
+## 📥 **2. Retrieving Session Data**
+
+### ✅ Method 1: `get()`
+
+```php
+$name = $request->session()->get('user_name');
+```
+
+With a default value:
+
+```php
+$name = $request->session()->get('user_name', 'Guest');
+```
+
+---
+
+### ✅ Method 2: `all()`
+
+Get **all session data**.
+
+```php
+$allData = $request->session()->all();
+```
+
+---
+
+### ✅ Method 3: `has()` / `exists()`
+
+Check if a session key exists.
+
+```php
+if ($request->session()->has('user_name')) {
+    // exists and not null
+}
+if ($request->session()->exists('user_name')) {
+    // exists even if null
+}
+```
+
+---
+
+## 🗑️ **3. Removing / Deleting Session Data**
+
+### ✅ Method 1: `forget()`
+
+Removes a single key.
+
+```php
+$request->session()->forget('user_name');
+```
+
+### ✅ Method 2: `flush()`
+
+Removes **all** session data.
+
+```php
+$request->session()->flush();
+```
+
+### ✅ Method 3: `invalidate()`
+
+Destroys the session completely and regenerates a new ID.
+
+```php
+$request->session()->invalidate();
+```
+
+---
+
+## 🔁 **4. Regenerate Session ID**
+
+Used for security (e.g., after login).
+
+```php
+$request->session()->regenerate();
+```
+
+---
+
+## ⚙️ **5. Session Helper Shortcut**
+
+You can use the global `session()` helper anywhere:
+
+```php
+session(['key' => 'value']);     // store
+$value = session('key');         // retrieve
+$value = session('key', 'default'); // with default
+session()->forget('key');        // remove
+```
+
+---
+
+### 💾 Bonus: Session Configuration
+
+In `.env` file:
+
+```env
+SESSION_DRIVER=file  # or database, redis, array, cookie
+SESSION_LIFETIME=120
+```
+
+Common drivers:
+
+* `file` → stored in `storage/framework/sessions`
+* `database` → stored in DB table
+* `redis` → stored in Redis cache
+* `array` → temporary (good for testing)
+
+---
+
+### ✅ Example Summary
+
+```php
+// Store
+$request->session()->put('user', 'Sasank');
+
+// Retrieve
+echo $request->session()->get('user');
+
+// Flash
+$request->session()->flash('status', 'User created successfully!');
+
+// Check
+if ($request->session()->has('user')) { ... }
+
+// Delete
+$request->session()->forget('user');
+
+// Clear all
+$request->session()->flush();
+```
+
+---
+
+Would you like me to show you a **table (cheat sheet)** of all Laravel session methods with their use and lifetime (persistent vs flash)? It’s perfect for interview prep.
