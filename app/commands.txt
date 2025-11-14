@@ -3,5 +3,10 @@ php artisan make:view ss
 php artisan make:controller formsubmit 
 php artisan serve
  php artisan make:middlewear ageCheck
+ php artisan make:model student
+ php artisan model:show student
 
  php artisan migrate
+
+help full for public access of image 
+ php artisan storage link 

@@ -40,12 +40,15 @@ class Users
 
     public function adduser(Request $request)
     {
+        $path = $request->file('profile_picture')->store('public');
+        $pathname=explode('/',$path)[1];
+        echo "Profile picture stored at: " . $pathname . "<br>";
         $user=new User;
         $user->name=$request->name;
         $user->email=$request->email;
         $user->password=$request->password;
         $user->save();
-        return "User added successfully";
+        return view('display',['pathname'=>$pathname]);
     }
 
     public function updateuser(Request $request)

@@ -14,11 +14,12 @@
      </form> <br><br>
 
     <h1>Users post</h1>
-    <form action="/adduser" method="POST">
+    <form action="/adduser" method="POST" enctype="multipart/form-data">
         @csrf
         <input type="text" name="name" placeholder="Name">
         <input type="email" name="email" placeholder="Email">
         <input type="password" name="password" placeholder="Password">
+        <input type="file" name="profile_picture" >
         <button type="submit">Add User</button>
     </form>
 
