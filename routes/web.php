@@ -59,6 +59,9 @@ Route::middleware(['Language'])->group(function(){
     Route::get('/lang',function(){
         return view('Language');
     });
-    
-   
 });
+
+
+
+Route::view('/first','firstpage');
+Route::view('/second','secondpage');

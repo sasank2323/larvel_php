@@ -10,3 +10,15 @@ php artisan serve
 
 help full for public access of image 
  php artisan storage link 
+
+
+LOCALIZATION 
+means local language in previous version it was included but now it have to add 
+
+ php artisan lang:publish 
+
+ php artisan make:component layout
+
+
+
+ 
