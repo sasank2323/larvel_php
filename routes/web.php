@@ -35,3 +35,12 @@ Route::get('/checksession',[checksession::class,'checksessiondata']);
 
 Route::get('/logout',[users::class,'logout']);
 
+
+Route::view('/lan','language');
+
+
+//setting a specific language 
+Route::get('/about{lang}',function($lang){
+    APP::setlocale($lang);
+    return view('about');
+});
