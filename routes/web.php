@@ -39,8 +39,26 @@ Route::get('/logout',[users::class,'logout']);
 Route::view('/lan','language');
 
 
-//setting a specific language 
-Route::get('/about{lang}',function($lang){
-    APP::setlocale($lang);
-    return view('about');
+//setting a specific language here we are setting manually the language settings so 
+//after this we can use middle wears to do the same 
+// Route::get('/about{lang}',function($lang){
+//     APP::setlocale($lang);
+//     return view('about');
+// });
+
+// Route::get('/setlang{lang}',function($lang){
+//     Session::put('lang',$lang);
+//     return lang;
+// });
+
+Route::middleware(['Language'])->group(function(){
+   Route::get('/about/{lang}',function($lang){
+        Session::put('lang',$lang);
+        return redirect('/lang');
+    });
+    Route::get('/lang',function(){
+        return view('Language');
+    });
+    
+   
 });
