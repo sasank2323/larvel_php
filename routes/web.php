@@ -65,3 +65,7 @@ Route::middleware(['Language'])->group(function(){
 
 Route::view('/first','firstpage');
 Route::view('/second','secondpage');
+
+
+Route::view('/firstextend','firstextend');
+Route::view('/secondextend','secondextend');
