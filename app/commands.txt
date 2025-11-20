@@ -20,5 +20,28 @@ means local language in previous version it was included but now it have to add
  php artisan make:component layout
 
 
+ migration 
+
+ php artisan make:migration create_users_table --create=users
+
+ after crreating run this 
+
+ php artisan migrate
+
+ php artisan migrate:reset 
+
+ php artisan migrate:rollback
+
+ php artisan migrate:rollback --step 2
+
+ php artisan migrate:refresh
+
+ php artisan migrate --path=/database/migrations/2024_01_01_123456_create_users_table.php
+
+php artisan make:seeder memberseeder 
+
+php artisan db:seed --class=memberseeder
+
+
 
  

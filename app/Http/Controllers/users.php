@@ -80,6 +80,7 @@ class Users
     public function deleteuser(Request $request)
     {
         $user=User::find($request->id);
+        // for multiple rows User::whereIn('id', [1,2,3,4])->delete(); use this 
         $user->delete();
         return "User deleted successfully";
     }
