@@ -9,9 +9,9 @@ class student extends Model
 {
     protected $table = 'student';
 
-    function get_fun()
+    function getMarksAttribute($val)
     {
-        return "ss";
+        return $val+100;
     }
 
    

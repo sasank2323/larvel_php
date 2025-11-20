@@ -8,6 +8,10 @@ use Illuminate\support\Facades\DB;
 
 class students
 {
+    function show()
+    {
+        return student::all();
+    }
     function getstudents()
     {
         // $studentmodel=new \App\Models\student;

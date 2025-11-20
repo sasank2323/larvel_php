@@ -69,3 +69,7 @@ Route::view('/second','secondpage');
 
 Route::view('/firstextend','firstextend');
 Route::view('/secondextend','secondextend');
+
+//Route::get("/showstudent",[Students::class,show]);
+
+Route::get('/showstudent', [Students::class, 'show']);
