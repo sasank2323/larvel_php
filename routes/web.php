@@ -73,3 +73,6 @@ Route::view('/secondextend','secondextend');
 //Route::get("/showstudent",[Students::class,show]);
 
 Route::get('/showstudent', [Students::class, 'show']);
+
+
+Route::get('/save',[Students::class,'save']);

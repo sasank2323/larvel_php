@@ -44,4 +44,20 @@ class students
         return view('students', ['data' => $response->json()]);
     }
 
+    function save()
+    {
+        $student =new Student();
+        $student->name="sasank";
+        $student->roll_number=999;
+        $student->marks=99;
+        $student->address="sjhwvjvhv";
+        if($student->save()){
+            print_r("done");
+        }
+        else{
+            print_r("not done");
+        }
+
+    }
+
 }
