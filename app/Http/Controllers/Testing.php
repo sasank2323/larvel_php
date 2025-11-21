@@ -13,4 +13,9 @@ class Testing
     {
         return seller::find(1)->productData;
     }
+
+    function many()
+    {
+        return seller::find(1)->productDataMany;
+    }
 }

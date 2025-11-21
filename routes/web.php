@@ -83,3 +83,4 @@ Route::get('/save',[Students::class,'save']);
 // table relation ships 
 
 Route::get("/onetoonelist",[Testing::class,'list']);
+Route::get("/many",[Testing::class,'many']);
