@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\users;
 use App\Http\Controllers\students;
 use App\Http\Controllers\checksession;
+use App\Http\Controllers\Testing;
 
 Route::get("/getstudents",[students::class,'getstudents']);
 
@@ -76,3 +77,9 @@ Route::get('/showstudent', [Students::class, 'show']);
 
 
 Route::get('/save',[Students::class,'save']);
+
+
+
+// table relation ships 
+
+Route::get("/onetoonelist",[Testing::class,'list']);
