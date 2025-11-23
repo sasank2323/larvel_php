@@ -9,7 +9,7 @@ class student extends Model
 {
     protected $table = 'student';
 
-    // when you getting data this will change the data and show this plus value 
+    // when you getting data this will change the data and show this plused value 
     function getMarksAttribute($val)
     {
         return $val+100;
@@ -19,7 +19,7 @@ class student extends Model
     {
         $this->attributes['marks']=6969;
     }
-// when added that specific column this will apply 
+// when added that specific column this will apply and add to data base 
     function setAddressAttribute($val)
     {
         $this->attributes['address']="testing";
