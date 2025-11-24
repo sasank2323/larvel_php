@@ -43,5 +43,22 @@ php artisan make:seeder memberseeder
 php artisan db:seed --class=memberseeder
 
 
+maintainense 
+
+php artisan down 
+
+php artisan up
+
+php artisan down --seceret="afterurlusethis"
+
+php artisan make:mail welcomemail
+
+
+php artisan make:class student
+php artisan make:enum   student
+php artisan make:interface student
+php artisan make:trait student
+
+
 
  
